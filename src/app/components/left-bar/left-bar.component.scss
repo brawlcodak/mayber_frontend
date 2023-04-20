@@ -1,0 +1,46 @@
+.sidebar {
+  width: 85px;
+  height: 96%;
+  position: fixed;
+  top: 2%;
+  left: 1%;
+  background-color: #0F518C;
+  border-radius: 20px;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.btn-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 114px;
+}
+
+.btn-header {
+  margin-top: 14px;
+  margin-bottom: 45px;
+  color: white;
+}
+
+.btn {
+  color: white;
+}
+
+.btn-center-normal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 70px;
+}
+
+.footer-logout {
+  position: fixed;
+  bottom: 5%;
+  left: 3.3%;
+  transform: translateX(-50%);
+}

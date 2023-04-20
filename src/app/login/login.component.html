@@ -1,0 +1,36 @@
+<div class="container">
+  <app-alert></app-alert>
+  <div class="login">
+    <h2 class="login-header">Iniciar Sesión</h2>
+    <form [formGroup]="loginForm" class="login-container">
+
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Usuario</mat-label>
+        <input matInput placeholder="user123" formControlName="username">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" placeholder="user123" formControlName="password">
+      </mat-form-field>
+
+      <div fxLayout="column" fxLayoutAlign="center center" class="btns">
+        <button
+              mat-raised-button
+              color="primary"
+              class="enter"
+              [disabled]="!loginForm.valid "
+              (click)="onLogin()">
+              <div class="spinner-wrapper" *ngIf="showAlert">
+                <mat-spinner color="accent" [diameter]="33"></mat-spinner>
+              </div>
+              <div *ngIf="!showAlert">Entrar</div>
+        </button>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="center center"class="register" >
+        <a href="#">¿Olvidaste tu contraseña?</a>
+        <a href="/register">¿No Tienes una cuenta?</a>
+      </div>
+    </form>
+  </div>
+</div>

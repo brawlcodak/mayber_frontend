@@ -1,0 +1,45 @@
+<div fxLayout="row" class="container">
+  <app-left-bar-administration></app-left-bar-administration>
+  <div class="content">
+    <app-top-bar title="Licencias" [email]="user?.email"></app-top-bar>
+  <div class="user_lists">
+    <span>{{pays.length}}</span>
+  </div>
+  <div class="list">
+    <ul class="responsive-table">
+      <li class="table-header">
+        <div class="col col-1">Id</div>
+        <div class="col col-2">Id Usuario</div>
+        <div class="col col-3">Email</div>
+        <div class="col col-4">Price</div>
+        <div class="col col-5">Numero Nequi</div>
+        <div class="col col-6">Nombre Nequi</div>
+        <div class="col col-7">Fecha</div>
+        <div class="col col-8">Licencia</div>
+        <div class="col col-9">Aceptado</div>
+        <div class="col col-10">Acciones</div>
+      </li>
+      <li class="table-row" *ngFor="let pay of pays.reverse()">
+        <div class="col col-1" data-label="Job Id">#{{pay.id}}</div>
+        <div class="col col-2" data-label="Customer Name">{{pay.user_id}}</div>
+        <div class="col col-3" data-label="Amount">{{pay.email}}</div>
+        <div class="col col-4" data-label="Payment Status">{{pay.price}}</div>
+        <div class="col col-5" data-label="Payment Status">{{pay.user_number}}</div>
+        <div class="col col-6" data-label="Payment Status">{{pay.username_nequi}}</div>
+        <div class="col col-7" data-label="Payment Status">{{pay.date}}</div>
+        <div class="col col-8" data-label="Payment Status">{{pay.license_name}}</div>
+        <div class="col col-9" data-label="Payment Status">
+          {{(pay.accepted == 0 ? 'No' : 'Si')}}</div>
+        <div fxLayout="row" class="col col-10" data-label="Payment Status">
+          <button mat-raised-button color="primary" (click)="onAcceptedPay(pay)" *ngIf="pay.accepted == 0">
+            <mat-icon>done</mat-icon>
+          </button>
+          <button mat-raised-button color="warn" *ngIf="pay.accepted == 0">
+            <mat-icon>clear</mat-icon>
+          </button>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+</div>

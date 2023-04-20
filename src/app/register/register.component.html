@@ -1,0 +1,52 @@
+<div class="container">
+
+  <div class="register">
+    <app-alert></app-alert>
+    <h2 class="register-header">Registro</h2>
+    <form [formGroup]="registerForm" class="register-container">
+
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Usuario</mat-label>
+        <input matInput placeholder="user123" formControlName="username">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Correo Eletronico</mat-label>
+        <input matInput placeholder="user@email.com" formControlName="email">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" placeholder="******" formControlName="re-password">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Confirme su contraseña</mat-label>
+        <input matInput type="password" placeholder="*******" formControlName="password">
+      </mat-form-field>
+
+      <div fxLayout="column" fxLayoutAlign="space-around center" class="last-section">
+        <button mat-button color="primary" (click)="openTyC()">Leer los terminos y condiciones</button>
+        <section class="example-section">
+          <mat-checkbox #tyc (change)="tym=tyc.checked"
+                class="example-margin">Acepto los terminos y condiciones</mat-checkbox>
+          <mat-checkbox #nokid (change)="noKid=nokid.checked"
+              class="example-margin">Acepto que soy mayor de edad.</mat-checkbox>
+        </section>
+      </div>
+
+      <div fxLayout="column" fxLayoutAlign="center center" class="btns">
+        <button
+              mat-raised-button
+              color="primary"
+              class="enter"
+              [disabled]="!registerForm.valid || !tym || !noKid"
+              (click)="onRegister()" [disabled]="ipRe">registrarme</button>
+      </div>
+      <div fxLayout="column" fxLayoutAlign="center center">
+        <a href="#">¿Ya Tienes una cuenta?</a>
+      </div>
+    </form>
+  </div>
+</div>
+

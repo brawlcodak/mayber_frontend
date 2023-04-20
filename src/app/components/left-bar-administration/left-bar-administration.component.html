@@ -1,0 +1,30 @@
+<div class="nav">
+  <div fxLayout="row" fxLayoutAlign="center center" class="nav_logo">
+    <img src="../../../assets/logos/logo-big.png" alt="Logo mayber">
+    <h2>AYBER</h2>
+  </div>
+  <div class="nav_options">
+    <ul>
+      <li (click)="redirect('private/adm/users')">
+        <div fxLayout="row" class="option" [ngClass]="{'selected' : url.includes('users')}">
+          <mat-icon class="text_option">person_outline</mat-icon>
+          <h3 class="text_option">Usuarios</h3>
+        </div>
+      </li>
+
+      <li (click)="redirect('private/adm/licenses')">
+        <div fxLayout="row" class="option" [ngClass]="{'selected' : url.includes('licenses')}">
+          <mat-icon class="text_option">card_membership</mat-icon>
+          <h3 class="text_option">Licencias</h3>
+        </div>
+      </li>
+
+      <li>
+        <div fxLayout="row" class="option">
+          <mat-icon class="text_option">report_problem</mat-icon>
+          <h3 class="text_option">Reportes</h3>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>

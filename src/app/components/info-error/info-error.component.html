@@ -1,0 +1,21 @@
+<h2 mat-dialog-title>Reportar un problema con Mayber</h2>
+<mat-dialog-content class="err-info">
+  <form [formGroup]="form">
+    <div fxLayout="column" fxLayoutAlign="start start">
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Titulo</mat-label>
+        <input matInput placeholder="Titulo" formControlName="title">
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="example-full-width">
+        <mat-label>Descipción</mat-label>
+        <textarea matInput cols="50" rows="12" placeholder="Sea objetivo con su problema por favor."
+        formControlName="description"></textarea>
+      </mat-form-field>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions align="end">
+  <button mat-button (click)="onSendReport()">Enviar</button>
+</mat-dialog-actions>
+

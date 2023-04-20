@@ -1,0 +1,7 @@
+<div *ngIf="show && error" class="alert-bar-error" [ngClass]="active">
+  <p>{{text}}</p>
+</div>
+
+<div *ngIf="show && !error" class="alert-bar-success" [ngClass]="active">
+  <p>{{text}}</p>
+</div>

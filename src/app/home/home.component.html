@@ -1,0 +1,11 @@
+<div fxLayout="column" fxLayoutAlign="center center" class="container"
+    style="width: 100%; height: 100%;">
+  <img src="../assets/logos/logo-big.png" alt="">
+  <h1>Bienvenido a Mayber. ¿Que desea hacer?</h1>
+  <button mat-raised-button color="primary" (click)="onRedirect('login')">Iniciar Sesión</button>
+  <br>
+  Ó
+  <br>
+  <br>
+  <button mat-raised-button color="primary" (click)="onRedirect('register')" [disabled]="ipRegister">Registrarme</button>
+</div>

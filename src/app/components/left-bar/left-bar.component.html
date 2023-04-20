@@ -1,0 +1,50 @@
+<div class="sidebar">
+      <div class="btn-center">
+        <button mat-icon-button class="btn-header">
+          <mat-icon>view_headline</mat-icon>
+        </button>
+      </div>
+    <ul>
+      <li>
+        <div class="btn-center-normal">
+          <button mat-icon-button class="btn" (click)="openDashboard()">
+            <mat-icon>equalizer</mat-icon>
+          </button>
+        </div>
+      </li>
+    <li>
+      <div class="btn-center-normal">
+        <button mat-icon-button class="btn" (click)="openInstructions()">
+          <mat-icon>help_outline</mat-icon>
+        </button>
+      </div>
+    </li>
+    <li>
+      <div class="btn-center-normal">
+      <button mat-icon-button class="btn" (click)="openReportError()">
+        <mat-icon>report_problem</mat-icon>
+      </button>
+    </div>
+  </li>
+    <li>
+      <div class="btn-center-normal">
+        <button mat-icon-button class="btn" (click)="redirect('shop')">
+          <mat-icon>shopping_cart</mat-icon>
+        </button>
+      </div>
+    </li>
+    <li>
+      <div class="btn-center-normal">
+        <button mat-icon-button class="btn" (click)="openUserPayments()">
+          <mat-icon>payment</mat-icon>
+        </button>
+      </div>
+    </li>
+  </ul>
+  <div class="footer-logout">
+    <button mat-icon-button class="btn" (click)="onLogout()">
+      <mat-icon>power_settings_new</mat-icon>
+    </button>
+  </div>
+</div>
+
