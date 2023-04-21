@@ -1,0 +1,90 @@
+<div class="info-bar">
+  <app-alert></app-alert>
+  <p>ELIJA SU PLAN PREFERIDO Ó VAYA A SUS <strong (click)="send_pays()" style="cursor: pointer;">PAGOS</strong> </p>
+</div>
+<div fxLayout="row" fxLayoutAlign="end center" class="backto" (click)="onDashboard()">
+  <button mat-button>
+    <mat-icon>queue_play_next</mat-icon>
+    Dashboard
+  </button>
+</div>
+<div class="pricing-plans">
+  <div class="plan">
+    <h2 [ngStyle]="{'color': gray_free}">Gratuito</h2>
+    <mat-list class="card-plan">
+      <mat-list-item [ngStyle]="{'color': gray_free}">$0.00 COP</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_free}">Periodo de prueba de 3 días</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_free}">Predicción azules</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_free}">Predicción purpuras</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_free}">Predicción rosas</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_free}">100% funcionalidades</mat-list-item>
+    </mat-list>
+    <button mat-raised-button *ngIf="license"
+          color="primary" class="button" [disabled]="gray_free == 'gray'"
+          (click)="onAddFree()">Elegir plan</button>
+  </div>
+  <div class="plan">
+    <h2 [ngStyle]="{'color': gray_basic}">Básico</h2>
+    <mat-list class="card-plan">
+      <mat-list-item [ngStyle]="{'color': gray_basic}">$30.000 COP</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_basic}">2 Semanas</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_basic}">Predicción azules</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_basic}">Predicción purpuras</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_basic}">Predicción rosas</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_basic}">100% funcionalidades</mat-list-item>
+    </mat-list>
+    <button mat-raised-button *ngIf="license"
+            color="primary" class="button"
+            [disabled]="gray_basic == 'gray'"
+            (click)="onPay(2)">Elegir plan</button>
+  </div>
+  <div class="plan">
+    <h2 [ngStyle]="{'color': gray_platin}">Platino</h2>
+    <mat-list class="card-plan">
+      <mat-list-item [ngStyle]="{'color': gray_platin}">$50.000 COP</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_platin}">1 Mes</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_platin}">Predicción azules</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_platin}">Predicción purpuras</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_platin}">Predicción rosas</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_platin}">100% funcionalidades</mat-list-item>
+    </mat-list>
+    <button mat-raised-button color="primary" *ngIf="license"
+            class="button" [disabled]="gray_platin == 'gray'"
+            (click)="onPay(3)">Elegir plan</button>
+  </div>
+  <div class="plan">
+    <h2 [ngStyle]="{'color': gray_premium}">Premium</h2>
+    <mat-list class="card-plan">
+      <mat-list-item [ngStyle]="{'color': gray_premium}">$250.000 COP</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_premium}">6 Meses</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_premium}">Predicción azules</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_premium}">Predicción purpuras</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_premium}">Predicción rosas</mat-list-item>
+      <mat-divider></mat-divider>
+      <mat-list-item [ngStyle]="{'color': gray_premium}">100% funcionalidades</mat-list-item>
+    </mat-list>
+    <button mat-raised-button color="primary" class="button" *ngIf="license"
+            [disabled]="gray_premium == 'gray'"
+            (click)="onPay(3)">Elegir plan</button>
+  </div>
+</div>
+

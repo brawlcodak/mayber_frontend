@@ -1,0 +1,71 @@
+.pricing-plans {
+  display: flex;
+  padding-top: 50px;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.info-bar{
+  background-color: black;
+  color: white;
+  padding: 12px;
+  text-align: center;
+  font-size: 27px;
+  font-weight: bold;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  transition: opacity 1s ease-in-out;
+  z-index: 9999;
+}
+
+.plan {
+  width: 300px;
+  height: 400px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0,0,0,0.2);
+  margin: 20px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  transition: all 0.3s ease-in-out;
+}
+
+.plan:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.plan h2 {
+  font-size: 32px;
+  margin-top: 0;
+}
+
+.plan p {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.button {
+  height: 40px;
+  border: none;
+  border-radius: 5px;
+  font-size: 20px;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+}
+
+.card-plan{
+  padding-bottom: 24px;
+}
+
+.backto {
+  padding-top: 50px;
+}

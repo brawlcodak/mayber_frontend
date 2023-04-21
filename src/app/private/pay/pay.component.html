@@ -1,0 +1,28 @@
+
+<header>
+  <h1>Pago para plan: {{license?.name}}</h1>
+</header>
+<main>
+  <app-alert></app-alert>
+  <form [formGroup]="form">
+    <div fxLayoutAlign="center center" >
+      <img src="../../../assets/logos/logo-big.png" alt="logo mayber">
+    </div>
+    <label for="nombre">Email de usuario:</label>
+    <input type="text" placeholder="email" formControlName="email" disabled>
+    <label>Valor:</label>
+    <input type="text" placeholder="Price" formControlName="price" disabled>
+    <label for="tarjeta">Número de telefono celular Nequi</label>
+    <input type="text" formControlName="user_number" placeholder="3xx-xxx-xxxx">
+    <label for="tarjeta">Nombre tal y como aparece usted en Nequi</label>
+    <input type="text" formControlName="username_nequi" placeholder="Pepito Perez">
+    <div fxLayout="column" fxLayoutAlign="center center" >
+      <p>Número al cual debe usted debe hacer el pago:</p>
+      <h1>313 716 8691</h1>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="space-between center">
+      <button type="submit" (click)="onPayReport()">Pagar</button>
+      <button mat-raised-button (click)="onCancel()">Cancelar</button>
+    </div>
+  </form>
+</main>

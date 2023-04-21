@@ -1,0 +1,109 @@
+<div class="container">
+  <app-alert></app-alert>
+  <app-left-bar></app-left-bar>
+  <div class="content">
+    <div fxLayout="row" fxLayoutAlign="space-between center"  class="title-header">
+      <h2>Dashboard - Aviator</h2>
+      <img src="../../../assets/logos/aviator-logo.png" alt="Aviator logo">
+    </div>
+
+    <div fxLayout="row" fxLayoutAlign="start center" class="toggles-btns">
+      <mat-slide-toggle color="warn" class="toggle-option"
+                        (change)="onEnableAll($event)">Habilitar todo</mat-slide-toggle>
+      <mat-slide-toggle [(ngModel)]="enable_percents" color="warn" class="toggle-option"
+                        (change)="enable_percents = $event.checked"
+                        >Mostrar porcentaje</mat-slide-toggle>
+      <mat-slide-toggle color="warn" class="toggle-option"
+                        (change)="enable_purples = $event.checked"
+                        [(ngModel)]="enable_purples">Purpuras</mat-slide-toggle>
+      <mat-slide-toggle color="warn" class="toggle-option"
+                        (change)="enable_pinks = $event.checked"
+                        [(ngModel)]="enable_pinks">Rosas</mat-slide-toggle>
+      <mat-slide-toggle color="warn" class="toggle-option"
+                        (change)="enable_max = $event.checked"
+                        [(ngModel)]="enable_max">Analisis Maximo</mat-slide-toggle>
+    </div>
+    <div fxLayout="row" class="space-dash">
+      <div class="process-container">
+        <div fxLayout="row" class="process-tools">
+          <h3>Herramientas</h3>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center" class="coefs-btns">
+          <button mat-raised-button class="btn blue" (click)="addCoef('blue')">
+            <mat-icon>flight_land</mat-icon>
+          </button>
+          <button mat-raised-button class="btn purple" (click)="addCoef('purple')">
+            <mat-icon>flight_takeoff</mat-icon>
+          </button>
+          <button mat-raised-button class="btn pink" (click)="addCoef('pink')">
+            <mat-icon>flight_takeoff</mat-icon>
+          </button>
+          <button mat-raised-button class="btn erase" (click)="addCoef('erase')">
+            <mat-icon>block</mat-icon>
+          </button>
+        </div>
+        <div fxLayout="row" fxLayoutAlign="center center" class="info-process">
+          <div class="info">
+            <p>{{text_information}}</p>
+          </div>
+        </div>
+
+        <div fxLayout="row" fxLayoutAlign="center center" class="info-process">
+          <mat-icon color="warn" *ngIf="licence.license_type_id == 1">child_care</mat-icon>
+          <mat-icon color="warn" *ngIf="licence.license_type_id == 2">polymer</mat-icon>
+          <mat-icon color="warn" *ngIf="licence.license_type_id == 3">pets</mat-icon>
+          <mat-icon color="warn" *ngIf="licence.license_type_id == 4">grade</mat-icon>
+          <div class="info-account">
+            <p >Licencia {{(licence.license_type_id == 1 ? 'Gratuita' :
+                            licence.license_type_id == 2 ? 'Básica' :
+                            licence.license_type_id == 3 ? 'Platino' : 'Premium')}}</p>
+          </div>
+        </div>
+
+        <div class="record-content">
+          <div class="record-header">
+            <h3>Historial</h3>
+          </div>
+
+          <div class="record-recount">
+            <button mat-raised-button matBadge="{{count_blue}}" matBadgeColor="accent" class="record-blue"></button>
+            <button mat-raised-button matBadge="{{count_purple}}" matBadgeColor="accent" class="record-purple"></button>
+            <button mat-raised-button matBadge="{{count_pink}}" matBadgeColor="accent" class="record-pink"></button>
+          </div>
+
+          <div class="record" *ngIf="records.length">
+            <div class="record-items">
+              <div class="itms">
+                <button mat-raised-button *ngFor="let record of records.reverse()"
+                        class="btn-itms" [ngStyle]="{'background-color' : record}"></button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="results-dash">
+        <div class="results">
+          <div fxLayout="column" fxLayoutAlign="center center" class="box-colors-result">
+            <button mat-raised-button class="btn-result-principal" [ngStyle]="{'background-color': color_principal}">
+              <div fxLayoutAlign="center center">
+                <mat-spinner *ngIf="!color_principal" color="accent" [diameter]="45"></mat-spinner>
+                <div *ngIf="enable_percents && color_principal" class="result-principal">{{percent_principal}}%</div>
+              </div>
+            </button>
+            <button mat-raised-button class="btn-result blue-result">
+              <div *ngIf="enable_percents" class="result-principal">{{percent_blue}}%</div>
+            </button>
+            <button mat-raised-button class="btn-result purple-result" *ngIf="enable_purples">
+              <div *ngIf="enable_percents" class="result-principal">{{percent_purple}}%</div>
+            </button>
+            <button mat-raised-button class="btn-result pink-result" *ngIf="enable_pinks">
+              <div *ngIf="enable_percents" class="result-principal">{{percent_pink}}%</div>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

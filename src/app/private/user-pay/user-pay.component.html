@@ -1,0 +1,36 @@
+<app-left-bar></app-left-bar>
+<div fxLayout="column" class="container">
+  <div fxLayout="column" fxLayoutAlign="center center" class="content">
+    <table>
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Email</th>
+          <th>Licencia</th>
+          <th>Precio</th>
+          <th>Nombre Nequi</th>
+          <th>Telefono Nequi</th>
+          <th>Fecha</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let pay of pays">
+          <td>{{pay.id}}</td>
+          <td>{{pay.email}}</td>
+          <td>{{pay.license_name}}</td>
+          <td>{{pay.price}}</td>
+          <td>{{pay.username_nequi}}</td>
+          <td>{{pay.user_number}}</td>
+          <td>{{pay.date}}</td>
+          <td>{{(pay.accepted ? 'Aceptado' : 'Corroborando Pago...')}}</td>
+          <!-- <td>
+            <button>Edit</button>
+            <button>Delete</button>
+          </td> -->
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</div>

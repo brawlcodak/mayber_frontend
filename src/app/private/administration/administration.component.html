@@ -1,0 +1,48 @@
+<div fxLayout="row" class="container">
+  <app-left-bar-administration></app-left-bar-administration>
+  <div class="content">
+    <app-top-bar title="Usuarios" [email]="user?.email"></app-top-bar>
+    <div class="user_lists">
+      <span>{{users.length}}</span>
+    </div>
+    <div fxLayout="row" fxLayoutAlign="end center" class="dates">
+      <mat-form-field  appearance="none" class="date_picker">
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+<!--
+      A
+
+      <mat-form-field  appearance="none" class="date_picker">
+        <input matInput [matDatepicker]="pickerto">
+        <mat-datepicker-toggle matSuffix [for]="pickerto"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field> -->
+    </div>
+    <div class="list">
+      <ul class="responsive-table">
+        <li class="table-header">
+          <div class="col col-1">Id</div>
+          <div class="col col-2">Username</div>
+          <div class="col col-3">Email</div>
+          <div class="col col-4">Fecha registro</div>
+          <div class="col col-5">Fecha login</div>
+          <div class="col col-6">Licencia</div>
+        </li>
+        <li class="table-row" *ngFor="let user of users">
+          <div class="col col-1" data-label="Job Id">#{{user.user.id}}</div>
+          <div class="col col-2" data-label="Customer Name">{{user.user.username}}</div>
+          <div class="col col-3" data-label="Amount">{{user.user.email}}</div>
+          <div class="col col-4" data-label="Payment Status">{{user.user.date}}</div>
+          <div class="col col-5" data-label="Payment Status">{{user.user.login_date}}</div>
+          <div class="col col-6" data-label="Payment Status">
+            {{(user.license.license_type_id == 1 ? 'Gratuita' :
+               user.license.license_type_id == 2 ? 'Basico' :
+               user.license.license_type_id == 3 ? 'Platino' : 'Premium')}}</div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
