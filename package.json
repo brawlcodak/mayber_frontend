@@ -21,7 +21,7 @@
     "@angular/platform-browser": "~13.2.0",
     "@angular/platform-browser-dynamic": "~13.2.0",
     "@angular/router": "~13.2.0",
-    "@ngtools/webpack": "^15.2.6",
+    "@ngtools/webpack": "^13.0.0",
     "@ngxs/devtools-plugin": "^3.8.0",
     "@ngxs/logger-plugin": "^3.8.0",
     "@ngxs/store": "^3.8.0",
@@ -40,7 +40,7 @@
   "devDependencies": {
     "@angular-devkit/build-angular": "~13.2.3",
     "@angular/cli": "~13.2.3",
-    "@angular/compiler-cli": "~13.2.0",
+    "@angular/compiler-cli": "^15.0.0",
     "@types/jasmine": "~3.10.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~4.0.0",
