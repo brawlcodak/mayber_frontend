@@ -24,7 +24,7 @@ const defaults: AccountStateModel = {
   license: {} as ILicense,
   license_for_pay: {} as ILicenseType,
   pays_user: [],
-  ipregistered: false
+  ipregistered: undefined
 };
 
 @State<AccountStateModel>({

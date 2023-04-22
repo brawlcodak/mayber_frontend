@@ -41,7 +41,19 @@
               color="primary"
               class="enter"
               [disabled]="!registerForm.valid || !tym || !noKid"
-              (click)="onRegister()" [disabled]="ipRe">registrarme</button>
+              (click)="onRegister()" [disabled]="ipRe">
+              <div *ngIf="!textAlert">registrarme</div>
+        </button>
+
+        <button mat-raised-button
+          color="primary"
+          class="enter"
+          *ngIf="textAlert"
+          disabled>
+          <div class="spinner-wrapper" *ngIf="textAlert.includes('charging')">
+            <mat-spinner color="accent" [diameter]="33"></mat-spinner>
+          </div>
+        </button>
       </div>
       <div fxLayout="column" fxLayoutAlign="center center">
         <a href="#">¿Ya Tienes una cuenta?</a>

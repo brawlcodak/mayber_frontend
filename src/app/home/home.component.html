@@ -3,9 +3,12 @@
   <img src="../assets/logos/logo-big.png" alt="">
   <h1>Bienvenido a Mayber. ¿Que desea hacer?</h1>
   <button mat-raised-button color="primary" (click)="onRedirect('login')">Iniciar Sesión</button>
+  <button mat-raised-button *ngIf="user.email.includes('admin')" color="primary" (click)="onRedirect('admin')">Administración</button>
   <br>
   Ó
   <br>
   <br>
-  <button mat-raised-button color="primary" (click)="onRedirect('register')" [disabled]="ipRegister">Registrarme</button>
+  <button mat-raised-button color="primary" (click)="onRedirect('register')" [disabled]="ipRegister">
+    Registrarme
+  </button>
 </div>

@@ -36,10 +36,11 @@
           <div class="col col-3" data-label="Amount">{{user.user.email}}</div>
           <div class="col col-4" data-label="Payment Status">{{user.user.date}}</div>
           <div class="col col-5" data-label="Payment Status">{{user.user.login_date}}</div>
-          <div class="col col-6" data-label="Payment Status">
+          <div class="col col-6" data-label="Payment Status" *ngIf="user.license">
             {{(user.license.license_type_id == 1 ? 'Gratuita' :
                user.license.license_type_id == 2 ? 'Basico' :
                user.license.license_type_id == 3 ? 'Platino' : 'Premium')}}</div>
+          <div *ngIf="!user.license">Sin iniciar licencia</div>
         </li>
       </ul>
     </div>

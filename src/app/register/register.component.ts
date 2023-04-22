@@ -21,7 +21,7 @@ export class RegisterComponent implements OnInit {
   public ipRe: boolean;
   public registerForm: FormGroup;
   public showAlert = false;
-  public textAlert = "";
+  public textAlert = false;
   public tym = false;
   public noKid = false;
   public ipRegister: string;
@@ -68,10 +68,20 @@ export class RegisterComponent implements OnInit {
       if(this.tym && this.noKid){
         delete newUser['re-password'];
         if(!this.ipRe) {
+          this.textAlert = true;
           this.store.dispatch(new  Auth.Register(newUser)).toPromise()
         .finally(() => {
+          this.textAlert = false;
           this.store.dispatch(new Account.AddBlackList(this.ipRegister));
         });
+        }else{
+          this.textAlert = false;
+          this.store.dispatch(new Varios.NotificationError({
+            error: true,
+            seconds: 4,
+            show: true,
+            text: "Ya tienes una cuenta en este dispositivo"
+          }));
         }
       }else{
         this.store.dispatch(new Varios.NotificationError({

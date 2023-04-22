@@ -6,6 +6,8 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Account } from '../core/states/account/account.actions';
 import { AccountState } from '../core/states/account/account.state';
+import { UserState } from '../core/states/user/user.state';
+import { IUser } from '../core/interfaces/iuser.interface';
 
 @Component({
   selector: 'app-home',
@@ -14,7 +16,9 @@ import { AccountState } from '../core/states/account/account.state';
 })
 export class HomeComponent implements OnInit {
   @Select(AccountState.get_ip_registered) ip$: Observable<boolean>;
-  public ipRegister: boolean;
+  @Select(UserState.get_user) user$: Observable<IUser>;
+  public ipRegister = true;
+  public user: IUser;
   constructor(
     private _helper: Helper,
     private store: Store,
@@ -31,8 +35,17 @@ export class HomeComponent implements OnInit {
 
   listenObservables() {
     this.ip$.subscribe((item) => {
-      this.ipRegister = item;
+      if (item) {
+        this.ipRegister = item;
+      }else{
+        this.ipRegister = true;
+      }
     });
+    this.user$.subscribe((item) => {
+      if(item.id) {
+        this.user = item;
+      }
+    })
   }
 
   getPublicIP(): Observable<any> {
@@ -47,6 +60,8 @@ export class HomeComponent implements OnInit {
       case 'register':
         this.store.dispatch(new Page.GoTo('register'));
         break;
+      case 'admin':
+        this.store.dispatch(new Page.GoTo('private/adm/users'));
     }
   }
 
